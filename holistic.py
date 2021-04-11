@@ -3,8 +3,8 @@ import cv2
 import time
 
 DRAW_FACE = True
-DRAW_POSE = False
-DRAW_HANDS = False
+DRAW_POSE = True
+DRAW_HANDS = True
 
 mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic
@@ -39,17 +39,18 @@ with mp_holistic.Holistic(
                 ),
             )
         # Draw pose landmarks
-        # if DRAW_POSE:
-        #     mp_drawing.draw_landmarks(
-        #         frame, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS
-        #     )
-        # if DRAW_HANDS:
-        #     mp_drawing.draw_landmarks(
-        #         frame, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS
-        #     )
-        #     mp_drawing.draw_landmarks(
-        #         frame, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS
-        #     )
+        if DRAW_POSE:
+            mp_drawing.draw_landmarks(
+                frame, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS
+            )
+        # Draw hands
+        if DRAW_HANDS:
+            mp_drawing.draw_landmarks(
+                frame, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS
+            )
+            mp_drawing.draw_landmarks(
+                frame, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS
+            )
 
         currentTime = time.time()
         fps = 1 / (currentTime - previousTime)
