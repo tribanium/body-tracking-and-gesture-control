@@ -1,7 +1,10 @@
 # Face, Hands and Body tracking using Mediapipe
 
 ## Install
-Create a new Python environment and `pip install mediapipe`. It installs OpenCV dependency `opencv-python`.
+Create a new Python environment and 
+* `pip install mediapipe` (it installs OpenCV dependency `opencv-python`)
+* `pip install pycaw` for sound control
 
 ## Resources
 https://github.com/google/mediapipe
+https://github.com/AndreMiras/pycaw
