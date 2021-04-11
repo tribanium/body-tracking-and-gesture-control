@@ -30,7 +30,7 @@ volume_percentage = 0
 
 while True:
     ret, frame = cap.read()
-    detector.find_hands(frame, draw=False)
+    detector.find_hands(frame, draw=True)
     landmarks_list = detector.landmarks_position(frame, hand_number=0)
 
     if landmarks_list:
@@ -51,9 +51,9 @@ while True:
         )
 
         # Mapping between line_length range and volume range
-        vol = np.interp(line_length, [50, 200], [max_volume, min_volume])
-        volume_bar = np.interp(line_length, [50, 200], [150, 400])
-        volume_percentage = np.interp(line_length, [50, 200], [100, 0])
+        vol = np.interp(line_length, [30, 400], [max_volume, min_volume])
+        volume_bar = np.interp(line_length, [30, 400], [150, 400])
+        volume_percentage = np.interp(line_length, [30, 400], [100, 0])
         volume.SetMasterVolumeLevel(vol, None)
 
     cv2.rectangle(frame, (50, 150), (85, 400), (0, 255, 0), 3)
