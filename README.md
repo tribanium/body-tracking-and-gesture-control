@@ -2,3 +2,6 @@
 
 ## Install
 Create a new Python environment and `pip install mediapipe`. It installs OpenCV dependency `opencv-python`.
+
+## Resources
+https://github.com/google/mediapipe
